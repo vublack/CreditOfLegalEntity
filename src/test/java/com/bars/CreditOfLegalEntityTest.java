@@ -32,7 +32,7 @@ public class CreditOfLegalEntityTest {
     public static void setup() {
 //        Configuration.fastSetValue=true;
         timeout = 80000;
-        baseUrl = getPolygon();
+        baseUrl = getPolygon(); /*!!!!Выбор полигона!!!!*/
 //        browser = "chrome";
         browser = "ie";
         startMaximized = true;
