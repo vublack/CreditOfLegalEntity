@@ -10,7 +10,7 @@ class LoginPage {
         return "http://10.10.17.22:8080/barsroot/account/login/";
 //        return "http://10.10.17.50:8080/barsroot/account/login/";
 //        return "http://10.10.17.40:8080/barsroot/account/login/";
-//        return "http://10.10.17.40:8082/barsroot/account/login/";;
+//        return "http://10.10.17.40:8082/barsroot/account/login/";
     }
     void fillLoginForm(String login, String password) {
         $("#txtUserName").setValue(login);
