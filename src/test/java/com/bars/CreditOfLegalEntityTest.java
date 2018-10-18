@@ -70,11 +70,6 @@ public class CreditOfLegalEntityTest {
         newCreditOfLegalEntityPage.filterInput("97407801");
         switchWindow.switchToOldWindow(newKdWindow);
         newCreditOfLegalEntityPage.ratesInput("12");
-
-//        newCreditOfLegalEntityPage.ratesButtonClick();
-//        newCreditOfLegalEntityPage.filterInputClick();
-//        newCreditOfLegalEntityPage.filterInput("9999");
-
         newCreditOfLegalEntityPage.typeOfCredit("ЮО Стандартний");
         newCreditOfLegalEntityPage.goalOfCredit("Поточна дiяльнiсть");
         newCreditOfLegalEntityPage.productOfCredit1();
@@ -82,7 +77,6 @@ public class CreditOfLegalEntityTest {
         newCreditOfLegalEntityPage.productOfCredit2();
         newCreditOfLegalEntityPage.filterInput("206301");
         newCreditOfLegalEntityPage.chooseGKD("Ні");
-
         //Вкладка Дані про погашення
         String firstPaymentDate = newCreditOfLegalEntityPage.getConclusionDate();
         newCreditOfLegalEntityPage.firstPaymentDate(firstPaymentDate);

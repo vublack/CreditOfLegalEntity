@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selenide.*;
 class NewCreditOfLegalEntityPage {
     private SwitchWindow switchWindow = page(SwitchWindow.class);
             // Вкладка Параметри КД
-            void fillNumSum(String num, String sum){
+    void fillNumSum(String num, String sum){
         $(byXpath("//*[@ng-model='credit.numValue']")).shouldBe(visible).setValue(num);
         $(byXpath("(//*[text()='Початкова сума']/following::*[@class='k-formatted-value k-input'])[1]")).shouldBe(visible).click();
         $(byXpath("//*[@k-ng-model='credit.sumValue']")).setValue(sum);
@@ -63,9 +63,6 @@ class NewCreditOfLegalEntityPage {
             $(byXpath("(//label[text()='Приналежність до ГКД:']/following::span[@class='k-select'])[1]")).shouldBe(visible).click();
             String gkdMembership = String.format("((//li[@class='k-item ng-scope'])[text()='%s'])", gKD);
             $(byXpath(gkdMembership)).shouldBe(visible).click();
-//            SelenideElement selectGKD =  $(byXpath("//select[@k-ng-model='credit.belongtoGKD']"));
-//            executeJavaScript("arguments[0].setAttribute('style', 'display: inline-block')",selectGKD);
-//            selectGKD.selectOptionContainingText("Ні"); //li[text()='%s']
         }
     }
 

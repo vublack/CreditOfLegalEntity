@@ -17,7 +17,6 @@ import static org.hamcrest.core.StringContains.containsString;
 class WorkCreditOfLegalEntityBriefcasePage {
 
     void chooseCredit(String creditType, String refCredit){
-//        String searchRowByNum = String.format("//*[text()='ФЛ стандарт']/preceding::*[text()=numCredit']",);
         $(byXpath("//*[text()='"+creditType+"']/preceding::*[text()='"+refCredit+"']")).shouldBe(visible).click();
     }
     void buildRepaymentSchedule(){
