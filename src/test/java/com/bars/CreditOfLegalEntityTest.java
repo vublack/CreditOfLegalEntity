@@ -147,7 +147,7 @@ public class CreditOfLegalEntityTest {
         switchWindow.switchToMainFrame();
         briefcaseNewCreditOfLegalEntityPage.pressRefreshBriefcase();
         //Авторизація
-        briefcaseNewCreditOfLegalEntityPage.chooseNewCredit(newCreditREF);
+        workCreditOfLegalEntityBriefcasePage.chooseCredit("ЮО Стандартний", newCreditREF);
         briefcaseNewCreditOfLegalEntityPage.сreditAuthorization("0");
         switchWindow.switchToDefaultContent();
 

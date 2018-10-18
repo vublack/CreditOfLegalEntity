@@ -18,7 +18,6 @@ class FilterBeforFillingTable {
         $(byXpath("(//*[text()='Зберегти']/following-sibling::*[@class='x-btn-icon-el save '])[2]")).shouldBe(visible).click();
         $(byXpath("//*[text()='Фільтр успішно додано']/following::*[text()='OK']")).shouldBe(visible).click();
     }
-
     void deleteUserFilter(String CooseRowByFilterName){
         $(byXpath("(//*[@class='x-tab-inner x-tab-inner-center'])[text()='Користувача']")).shouldBe(visible).click();
         String searchRowByFilterName = String.format("(//*[@class='x-grid-cell-inner '])[text()='%s']", CooseRowByFilterName);

@@ -15,10 +15,6 @@ class BriefcaseNewCreditOfLegalEntityPage {
         $(byXpath("//span[@class='x-btn-icon-el x-tbar-loading ']")).shouldBe(visible).click();
         $(byXpath("//*[@class = 'x-mask-msg-text']")).shouldNotBe(visible);
     }
-    void chooseNewCredit(String NumberOfCredit){
-        String pathOfNumberOfCredit = String.format( "//*[text()='ЮО Стандартний']/preceding::*[text()='%s']", NumberOfCredit);
-        $(byXpath(pathOfNumberOfCredit)).shouldBe(visible).click();
-    }
     void сreditAuthorization(String autorizationType){
         $(byXpath("//a[@data-qtip='КД: Авторизація КД']")).shouldBe(visible).click();
         $(byXpath("(//*[@class='x-btn-inner x-btn-inner-center'])[text()='Так']")).shouldBe(visible).click();
