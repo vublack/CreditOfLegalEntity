@@ -11,6 +11,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 class NewCreditOfLegalEntityPage {
     private SwitchWindow switchWindow = page(SwitchWindow.class);
+    private LoginPage loginPage = page(LoginPage.class);
             // Вкладка Параметри КД
     void fillNumSum(String num, String sum){
         $(byXpath("//*[@ng-model='credit.numValue']")).shouldBe(visible).setValue(num);
@@ -59,11 +60,9 @@ class NewCreditOfLegalEntityPage {
         $(byXpath("//th[@data-field='ID']/a[@class='k-grid-filter']")).shouldBe(visible).click();
     }
     void chooseGKD(String gKD){
-        if(LoginPage.getPolygon().equals("http://10.10.17.22:8080/barsroot/account/login/")){
-            $(byXpath("(//label[text()='Приналежність до ГКД:']/following::span[@class='k-select'])[1]")).shouldBe(visible).click();
-            String gkdMembership = String.format("((//li[@class='k-item ng-scope'])[text()='%s'])", gKD);
-            $(byXpath(gkdMembership)).shouldBe(visible).click();
-        }
+        $(byXpath("(//label[text()='Приналежність до ГКД:']/following::span[@class='k-select'])[1]")).shouldBe(visible).click();
+        String gkdMembership = String.format("((//li[@class='k-item ng-scope'])[text()='%s'])", gKD);
+        $(byXpath(gkdMembership)).shouldBe(visible).click();
     }
 
     String getConclusionDate(){

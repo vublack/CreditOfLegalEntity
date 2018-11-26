@@ -8,7 +8,6 @@ import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestRule;
-import static com.bars.LoginPage.getPolygon;
 import static com.codeborne.selenide.Configuration.*;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.page;
@@ -32,7 +31,7 @@ public class CreditOfLegalEntityTest {
     public static void setup() {
 //        Configuration.fastSetValue=true;
         timeout = 80000;
-        baseUrl = getPolygon(); /*!!!!Выбор полигона!!!!*/
+//        baseUrl = getPolygon(); /*!!!!Выбор полигона!!!!*/
 //        browser = "chrome";
         browser = "ie";
         startMaximized = true;
@@ -50,6 +49,9 @@ public class CreditOfLegalEntityTest {
         searchPage.h1();
         switchWindow.switchToDefaultContent();
         searchPage.chooseBranch();
+        loginPage.prof();
+        String base = loginPage.getPolygon();
+//        String pol = $x("(//*[text()='База даних:']/following::span)[1]").shouldBe(visible).getText();
         searchPage.searchFunction("Портфель НОВИХ кредитів ЮО");
         switchWindow.switchToMainFrame();
         //Кнопка Новый КД(переключение на окно Нового КД)
@@ -76,7 +78,11 @@ public class CreditOfLegalEntityTest {
         switchWindow.switchToOldWindow(newKdWindow);
         newCreditOfLegalEntityPage.productOfCredit2();
         newCreditOfLegalEntityPage.filterInput("206301");
-        newCreditOfLegalEntityPage.chooseGKD("Ні");
+        if( base.equals("MMFOT")|| base.equals("OBMMFOT1"))
+        {
+            newCreditOfLegalEntityPage.chooseGKD("Ні");
+        }
+
         //Вкладка Дані про погашення
         String firstPaymentDate = newCreditOfLegalEntityPage.getConclusionDate();
         newCreditOfLegalEntityPage.firstPaymentDate(firstPaymentDate);
