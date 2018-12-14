@@ -38,6 +38,7 @@ public class CreditOfLegalEntityTest {
 //        System.setProperty("webdriver.ie.driver", ".\\IEDriverServer.exe");
         InternetExplorerDriverManager.getInstance(DriverManagerType.IEXPLORER).arch32().setup();
         open("/");
+
     }
     @Test
     public void creditLegalEntityTest() {
@@ -54,6 +55,12 @@ public class CreditOfLegalEntityTest {
 //        String pol = $x("(//*[text()='База даних:']/following::span)[1]").shouldBe(visible).getText();
         searchPage.searchFunction("Портфель НОВИХ кредитів ЮО");
         switchWindow.switchToMainFrame();
+//        if(base.equals("RCMMFO"))
+//        {
+//            Робота з фільтром
+//            filterBeforFillingTable.clearFilter();
+//            filterBeforFillingTable.furtherButtonClick();
+//        }
         //Кнопка Новый КД(переключение на окно Нового КД)
         String briefcaseNewKdWindow = getWebDriver().getWindowHandle();
         briefcaseNewCreditOfLegalEntityPage.pressCreateNewKD();
@@ -153,7 +160,7 @@ public class CreditOfLegalEntityTest {
         switchWindow.switchToMainFrame();
         briefcaseNewCreditOfLegalEntityPage.pressRefreshBriefcase();
         //Авторизація
-        workCreditOfLegalEntityBriefcasePage.chooseCredit("ЮО Стандартний", newCreditREF);
+        workCreditOfLegalEntityBriefcasePage.chooseCredit(newCreditREF);
         briefcaseNewCreditOfLegalEntityPage.сreditAuthorization("0");
         switchWindow.switchToDefaultContent();
 
@@ -172,7 +179,7 @@ public class CreditOfLegalEntityTest {
         filterBeforFillingTable.furtherButtonClick();
         //Портфель Робочих кредитів(Побудава ГПК та Графіку подій по портфелю)
         String workCreditOfLegalEntityBriefcaseWindow = getWebDriver().getWindowHandle();
-        workCreditOfLegalEntityBriefcasePage.chooseCredit("ЮО Стандартний", newCreditREF);
+        workCreditOfLegalEntityBriefcasePage.chooseCredit(newCreditREF);
         workCreditOfLegalEntityBriefcasePage.buildRepaymentSchedule();
         switchWindow.forceSwitchToWindow(workCreditOfLegalEntityBriefcaseWindow);
         switchWindow.windowMaximize();
@@ -182,7 +189,7 @@ public class CreditOfLegalEntityTest {
         switchWindow.closeWindow(gpkWindow);
         switchWindow.switchToOldWindow(workCreditOfLegalEntityBriefcaseWindow);
         switchWindow.switchToMainFrame();
-        workCreditOfLegalEntityBriefcasePage.chooseCredit("ЮО Стандартний", newCreditREF);
+        workCreditOfLegalEntityBriefcasePage.chooseCredit(newCreditREF);
         workCreditOfLegalEntityBriefcasePage.eventsTimetableOfBriefcaseButton();
         switchWindow.forceSwitchToWindow(workCreditOfLegalEntityBriefcaseWindow);
         switchWindow.windowMaximize();

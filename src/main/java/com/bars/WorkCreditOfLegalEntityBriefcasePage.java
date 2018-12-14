@@ -16,8 +16,8 @@ import static org.hamcrest.core.StringContains.containsString;
 
 class WorkCreditOfLegalEntityBriefcasePage {
 
-    void chooseCredit(String creditType, String refCredit){
-        $(byXpath("//*[text()='"+creditType+"']/preceding::*[text()='"+refCredit+"']")).shouldBe(visible).click();
+    void chooseCredit(String refCredit){
+        $(byXpath("//*[text()='"+refCredit+"']")).shouldBe(visible).click();
     }
     void buildRepaymentSchedule(){
         $(byXpath("//a[@data-qtip='КД: Побудова ГПК для обраного КД']")).shouldBe(visible).click();
